@@ -33,6 +33,7 @@ be functionally characterized.
 
 Change log
 
+
 Version 2.6.5, 20 December 2022
 - Corrected a bug and improved settings in parameters file for the rarefaction curves generation.
 
