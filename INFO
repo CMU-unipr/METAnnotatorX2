@@ -1,0 +1,128 @@
+
+                                         Version 2.6.5, 20 December 2022
+
+# METAnnotatorX2: a Metagenomic Annotator
+# Copyright (C) 2021 Lugli Gabriele Andrea and Milani Christian
+
+# METAnnotatorX2 is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# METAnnotatorX2 is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+For the installation and usage of METAnnotatorX2, please refer to manual.pdf.
+
+DESCRIPTION
+
+METAnnotatorX2 is a bioinformatic platform for reads- and assembly-based 
+analysis of metagenomics datasets. This pipeline allows the perform taxonomic
+and a range of functional profiling analyses of next-generation shotgun 
+sequencing data. Shotgun metagenomics datasets can also be assembled and the
+resulting contigs can be taxonomically classified at the genus or species 
+level with the generation of GenBank files with annotated ORFs for each taxon 
+identified. Contigs corresponding to each genus or species profiles can also 
+be functionally characterized.
+
+
+Change log
+
+Version 2.6.5, 20 December 2022
+- Corrected a bug and improved settings in parameters file for the rarefaction curves generation.
+
+Version 2.6.4, 14 December 2022
+- Added generation of rarefaction curves in the parameters files in addition to eXtra random features.
+
+Version 2.6.3, 05 December 2022
+- Added function for additional eXtra random features: rarefaction_curves. It performs rarefaction curves of the number of detected species using 10 subsets of reads with hits.
+
+Version 2.6.2, 21 July 2022
+- Corrected and error in the extraction of taxonomic profiles of EC genes of the additional eXtra random features: extractor.
+
+Version 2.6.1, 04 July 2022
+- Added the host filtering option: Apis mellifera
+
+Version 2.6.0, 29 June 2022
+- The eXtra random features go_hierarchy is now a main feature that can be requested in the parameters file. It performs a GO hierarchical classification of EC numbers listed in the database provided in the database sub-folder "METAnnotatorX2/databases/Metabolic_reactions/Diamond_is_unbreakable/ECtoGO". Present version includes EC numbers involved in small molecules metabolism. Database will be extended to all enzymatic reactions in a future update.
+
+Version 2.5.7, 14 June 2022
+- Added function for additional eXtra random features: go_hierarchy. It performs a GO hierarchical classification of EC numbers listed in the database provided in the database sub-folder "METAnnotatorX2/databases/Metabolic_reactions/Diamond_is_unbreakable/ECtoGO". Present version include sEC numbers involved in small molecules metabolism.
+
+Version 2.5.6, 06 June 2022
+- Updated the additional eXtra random feature: extractor.
+
+Version 2.5.5, 06 May 2022
+- Added function for additional eXtra random features: extractor. It check presence of the EC_list_for_taxonomic_profiling.txt file in samples folders and merges results of all the samples based on EC number.
+
+Version 2.5.4, 26 Apr 2022
+- Added function for additional eXtra random features: ec_taxonomy. It performs taxonomic profiling of reads classified as specific EC numbers as listed in the EC_list_for_taxonomic_profiling.txt. An example is availabile in software/additional_resouces and should be put in the root analysis directory.
+
+Version 2.5.3, 20 Apr 2022
+- Added update of dependeciens when updating software.
+
+Version 2.5.3, 24 Mar 2022
+- Added automatic detection of reads lenght for kmer settings of assembly.
+- Added additional information regarding taxonomically and functionally classified reads in the sequencing_and_quality_filtering_stats.txt file.
+- Improved the additional eXtra random feature "extractor" to match the new sequencing_and_quality_filtering_stats.txt format.
+- Corrected an issue in the eXtra random features: prepare_miseq, prepare_nextseq, prepare_single.
+
+Version 2.5.2, 08 Mar 2022
+- Corrected an issue in the EC classification script of reads and genbanks.
+- Improved the function for additional eXtra random features: prepare_miseq, prepare_nextseq, prepare_single.
+
+Version 2.5.1, 22 Feb 2022
+- Corrected an issue in the LCA taxonomic classification script.
+- Updated the installer to include "curl" software.
+
+Version 2.5.0, 09 Feb 2022
+- Species and genera level GenBank generation and functional annotation of the predicted genes has been revamped employing Diamond software and a novel non redundant (processed with CD-HIT 0.7 identity) RefSeq database.
+
+Version 2.4.2, 08 Feb 2022
+- Added progress report for reads classification.
+
+Version 2.4.1, 07 Feb 2022
+- Added function for additional eXtra random features: extractor.
+- Functional analysis based on EC number profiling was totaly renewed based on Diamond software for ultrafast blastx and a new non redundant (processed with CD-HIT 0.8 identity) database of prokaryotic genes with EC number based on RefSeq (cleaned, e.g. removal of partial genes).
+
+Version 2.4.0, 02 Feb 2022
+- Added function for additional eXtra random features under development "-x". To set up analysis of multiple .fastq files: prepare_miseq, prepare_nextseq, prepare_single.
+
+Version 2.4.0, 25 Jan 2022
+- Added parameters option for background nose removal based on minimum classified number of reads.
+
+Version 2.3.0, 30 Nov 2021
+- Corrected an issue in the singe-end data filtering script.
+- Corrected an issue in the tRNAs and rRNAs filtering scripts.
+
+Version 2.2.0, 08 July 2021
+- Added RnaSeq mode and rRNA_tRNA database. When Rna Mode is active, reads are filtered for rRNA and tRNA and then processed as usual.
+
+Version 2.1.7, 27 May 2021
+- Tweaking of filtering pipeline. Introduced the primer filtering hidden feature (place a list of primers in a file named "primers_list.txt" to trigger their filtering from, sequences' edges).
+
+Version 2.1.6, 20 May 2021
+- Improved Host reads filtering. Switched to bwa and improved the databases.
+
+Version 2.1.5, 05 March 2021
+- Added script for taxonomic profiling of reads classified as EC numbers specified by the user.
+
+Version 2.1.4, 18 February 2021
+- Pathways profiling improved through analysis of metabolic reactions. A custom database was buiild based on MetaCyc data regarding EC numbers of reactions involved in prokaryotiic as well as fungi and protists metabolisms.
+
+Version 2.1.3, 20 January 2021
+- Added various customizable settings in the reads taxonomic profiling pipeline (see parameters file).
+
+Version 2.1.2, 12 January 2021
+- Added LCA taxonomy prediction for unclassified reads. Check unclassificable_reads_LCA_classification.txt file in output/reads_taxonomy folder.
+
+Version 2.1.1, 21 December 2020
+- Corrected an issue with reads-based pathways profiling script.
+
+Version 2.1.0, 04 December 2020
+- Added reads analysis with custom database.
